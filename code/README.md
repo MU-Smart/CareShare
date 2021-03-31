@@ -17,13 +17,13 @@ bash start.sh 2>&1 | tee full_op.txt
 After the taxi system has completed running, the results are present in experiments.csv and experiments_taxis.csv. Any logs will be logged in the respective log folders for the taxis and passengers.
 
 We can run the taxi system for a small number of taxis in our local machine, by making the following changes:
-	* Initialise no_of_taxis in ride_sharing.config to a small number (say 10, 20)
-	* Accordingly limit the no of rows in file (Each row indicates the initial position of the taxi) in 1dayNP_400taxis_Kmeans.csv (for NonPeak) or 1dayP_500taxis_Kmeans.csv (for Peak)
-	* Modify the no of passenger requests as needed in file Sun_NonPeak_passenger.csv present in folder TaxiSystem/NonPeakCode/Pass_Requests/ (for NonPeak) and modify Sun_Peak_passenger.csv present in folder TaxiSystem/PeakCode/Pass_Requests/ (for Peak)
-	* Run the below command to start the taxi system:
-		```
-		bash start.sh 2>&1 | tee full_op.txt
-		```
+* Initialise no_of_taxis in ride_sharing.config to a small number (say 10, 20)
+* Accordingly limit the no of rows in file (Each row indicates the initial position of the taxi) in 1dayNP_400taxis_Kmeans.csv (for NonPeak) or 1dayP_500taxis_Kmeans.csv (for Peak)
+* Modify the no of passenger requests as needed in file Sun_NonPeak_passenger.csv present in folder TaxiSystem/NonPeakCode/Pass_Requests/ (for NonPeak) and modify Sun_Peak_passenger.csv present in folder TaxiSystem/PeakCode/Pass_Requests/ (for Peak)
+* Run the below command to start the taxi system:
+```
+bash start.sh 2>&1 | tee full_op.txt
+```
 
 2. Queuing Model: Running the queueing model is similar to running the taxi system. In this module the requests are prioritised and then considered for computation by the taxi system.
 
