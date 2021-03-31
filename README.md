@@ -22,4 +22,4 @@ Here, nodes, ppn can be configured according to requirements. The value of wallt
 bash start.sh 2>&1 | tee full_op.txt
 ```
 
-For simulating a small scale taxi system, please refer [here]().
+For simulating a small scale taxi system, please refer [here](https://github.com/MU-Smart/CareShare/tree/main/code#simulating-a-small-scale-taxi-system).
