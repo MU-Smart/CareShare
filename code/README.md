@@ -26,10 +26,10 @@ python3 metrics.py
 
 Doing this will display the average results over all iterations. The success rate of Nth passenger request and Nth acceptance will be plotted and saved in the base folder. The results for each iteration is inserted in the folder JSON. The success rate of Nth passenger for each iteration will be folder Cap and the Nth acceptance for all iterations is plotted and saved in folder Acceptance.
 
-4. Pareto Analysis: Place the results of the taxi system in the respective NonPeak and Peak folders. Change the folder name in pareto.py based on whether minimum distance from origin was considered or utility function was considered while running the taxi system. After this, run the below command:
+4. Pareto Analysis: Place the results of the taxi system in the respective NonPeak and Peak folders. Change the folder name in pareto_front.py based on whether minimum distance from origin was considered or utility function was considered while running the taxi system. After this, run the below command:
 
 ```
-python3 pareto.py
+python3 pareto_front.py
 ```	
 
 The graphs will be respectively plotted in the folders.
