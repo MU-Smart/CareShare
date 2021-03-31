@@ -2,7 +2,7 @@
 
 The Code folder is organised into the following subfolders:
 
-1. Taxi System: This folder contains the code to run the taxi system. This folder is organised into Non Peak and Peak folders. These folders have the data to run the taxi system respectively during peak and non peak hours. For these folders, any configuration changes such as changing taxi timer values, first hop distance, number of taxis, the port on which the taxis should run can be done. Also the API key needs to be updated frequently. In order to run the taxi system, we connect to the Miami cluster and then connect to the compute nodes using the below command:
+1. Taxi System: This folder contains the code to run the taxi system. This folder is organised into Non Peak and Peak folders. These folders have the data to run the taxi system respectively during peak and non peak hours. For these folders, any configuration changes such as changing taxi timer values, first hop distance, number of taxis, the port on which the taxis should run can be done. Also the HERE API key to (This API provides the route between two locations. Link : https://developer.here.com/) needs to be updated accordingly in ride_sharing.config. In order to simulate the full scale taxi system we can use any computing cluster (we have used the Miami cluster), we connect to the Miami cluster and then connect to the compute nodes using the below command:
 
 ```
 qsub -l  nodes = 2:ppn = 4 -l walltime=9:00:00-IV -X
@@ -15,6 +15,15 @@ bash start.sh 2>&1 | tee full_op.txt
 ```
 
 After the taxi system has completed running, the results are present in experiments.csv and experiments_taxis.csv. Any logs will be logged in the respective log folders for the taxis and passengers.
+
+We can run the taxi system for a small number of taxis in our local machine, by making the following changes:
+	* Initialise no_of_taxis in ride_sharing.config to a small number (say 10, 20)
+	* Accordingly limit the no of rows in file (Each row indicates the initial position of the taxi) in 1dayNP_400taxis_Kmeans.csv (for NonPeak) or 1dayP_500taxis_Kmeans.csv (for Peak)
+	* Modify the no of passenger requests as needed in file Sun_NonPeak_passenger.csv present in folder TaxiSystem/NonPeakCode/Pass_Requests/ (for NonPeak) and modify Sun_Peak_passenger.csv present in folder TaxiSystem/PeakCode/Pass_Requests/ (for Peak)
+	* Run the below command to start the taxi system:
+		```
+		bash start.sh 2>&1 | tee full_op.txt
+		```
 
 2. Queuing Model: Running the queueing model is similar to running the taxi system. In this module the requests are prioritised and then considered for computation by the taxi system.
 
